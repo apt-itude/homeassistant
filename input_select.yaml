@@ -1,0 +1,8 @@
+office_scene:
+  name: Office Scene
+  options:
+    - none
+    - all
+    - standing
+    - shelf
+  initial: none
