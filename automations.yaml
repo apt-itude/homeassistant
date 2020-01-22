@@ -3,104 +3,110 @@
   description: ''
   trigger:
   - entity_id: device_tracker.alex
-    from: not_home
     platform: state
+    from: not_home
     to: home
   condition:
-  - after: sunset
-    condition: sun
+  - condition: sun
+    after: sunset
   action:
-  - alias: ''
+  - service: input_select.select_option
+    entity_id: input_select.office_scene
     data:
       option: all
-    entity_id: input_select.office_scene
-    service: input_select.select_option
+
 - id: 26a4587d41524e818f510d54ba13b1fc
   alias: Office Button Turn On Lights
   description: ''
   trigger:
-  - device_id: b632a727fe2c41569d5cc83698124212
+  - platform: device
+    device_id: b632a727fe2c41569d5cc83698124212
     domain: zha
-    platform: device
-    subtype: remote_button_short_press
     type: remote_button_short_press
+    subtype: remote_button_short_press
   condition:
   - condition: state
     entity_id: input_select.office_scene
     state: none
   action:
-  - data:
-      option: all
+  - service: input_select.select_option
     entity_id: input_select.office_scene
-    service: input_select.select_option
+    data:
+      option: all
+
 - id: '1579227632285'
   alias: Office Button Turn Off Lights
   description: ''
   trigger:
-  - device_id: b632a727fe2c41569d5cc83698124212
+  - platform: device
+    device_id: b632a727fe2c41569d5cc83698124212
     domain: zha
-    platform: device
-    subtype: remote_button_short_press
     type: remote_button_short_press
+    subtype: remote_button_short_press
   condition:
   - condition: template
-    value_template: '{{ not is_state(''input_select.office_scene'', ''none'') }}'
+    value_template: "{{ not is_state('input_select.office_scene', 'none') }}"
   action:
-  - data:
-      option: none
+  - service: input_select.select_option
     entity_id: input_select.office_scene
-    service: input_select.select_option
+    data:
+      option: none
+
 - id: '1579059935757'
   alias: Office Button Cycle Scenes
   description: ''
   trigger:
-  - device_id: b632a727fe2c41569d5cc83698124212
+  - platform: device
+    device_id: b632a727fe2c41569d5cc83698124212
     domain: zha
-    platform: device
-    subtype: remote_button_double_press
     type: remote_button_double_press
+    subtype: remote_button_double_press
   condition: []
   action:
   - service: input_select.select_next
     data:
       entity_id: input_select.office_scene
+
 - id: '1579060720506'
   alias: Select Scene Office All Lights
   description: ''
   trigger:
-  - entity_id: input_select.office_scene
-    platform: state
+  - platform: state
+    entity_id: input_select.office_scene
     to: all
   condition: []
   action:
   - scene: scene.office_all_lights
+
 - id: '1579061140527'
   alias: Select Scene Office No Lights
   description: ''
   trigger:
-  - entity_id: input_select.office_scene
-    platform: state
+  - platform: state
+    entity_id: input_select.office_scene
     to: none
   condition: []
   action:
   - scene: scene.office_no_lights
-- alias: Select Scene Office Standing Lamp Only
+
+- id: 3b4480fe7c0344d1a358514de6550f2c
+  alias: Select Scene Office Standing Lamp Only
   description: ''
   trigger:
-  - entity_id: input_select.office_scene
-    platform: state
+  - platform: state
+    entity_id: input_select.office_scene
     to: standing
   condition: []
   action:
   - scene: scene.office_only_standing_lamp
-  id: 3b4480fe7c0344d1a358514de6550f2c
-- alias: Select Scene Office Shelf Lamp Only
+
+- id: d26455a2beaa43fe9f3cc4827e9b19c2
+  alias: Select Scene Office Shelf Lamp Only
   description: ''
   trigger:
-  - entity_id: input_select.office_scene
-    platform: state
+  - platform: state
+    entity_id: input_select.office_scene
     to: shelf
   condition: []
   action:
   - scene: scene.office_only_shelf_lamp
-  id: d26455a2beaa43fe9f3cc4827e9b19c2
