@@ -1,112 +1,112 @@
-- id: '1578980090089'
+- id: "1578980090089"
   alias: Alex gets home in evening
-  description: ''
+  description: ""
   trigger:
-  - entity_id: device_tracker.alex
-    platform: state
-    from: not_home
-    to: home
+    - entity_id: device_tracker.alex
+      platform: state
+      from: not_home
+      to: home
   condition:
-  - condition: sun
-    after: sunset
+    - condition: sun
+      after: sunset
   action:
-  - service: input_select.select_option
-    entity_id: input_select.office_scene
-    data:
-      option: all
+    - service: input_select.select_option
+      entity_id: input_select.office_scene
+      data:
+        option: all
 
 - id: 26a4587d41524e818f510d54ba13b1fc
   alias: Office Button Turn On Lights
-  description: ''
+  description: ""
   trigger:
-  - platform: device
-    device_id: b632a727fe2c41569d5cc83698124212
-    domain: zha
-    type: remote_button_short_press
-    subtype: remote_button_short_press
+    - platform: device
+      device_id: b632a727fe2c41569d5cc83698124212
+      domain: zha
+      type: remote_button_short_press
+      subtype: remote_button_short_press
   condition:
-  - condition: state
-    entity_id: input_select.office_scene
-    state: none
-  action:
-  - service: input_select.select_option
-    entity_id: input_select.office_scene
-    data:
-      option: all
-
-- id: '1579227632285'
-  alias: Office Button Turn Off Lights
-  description: ''
-  trigger:
-  - platform: device
-    device_id: b632a727fe2c41569d5cc83698124212
-    domain: zha
-    type: remote_button_short_press
-    subtype: remote_button_short_press
-  condition:
-  - condition: template
-    value_template: "{{ not is_state('input_select.office_scene', 'none') }}"
-  action:
-  - service: input_select.select_option
-    entity_id: input_select.office_scene
-    data:
-      option: none
-
-- id: '1579059935757'
-  alias: Office Button Cycle Scenes
-  description: ''
-  trigger:
-  - platform: device
-    device_id: b632a727fe2c41569d5cc83698124212
-    domain: zha
-    type: remote_button_double_press
-    subtype: remote_button_double_press
-  condition: []
-  action:
-  - service: input_select.select_next
-    data:
+    - condition: state
       entity_id: input_select.office_scene
+      state: none
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.office_scene
+      data:
+        option: all
 
-- id: '1579060720506'
+- id: "1579227632285"
+  alias: Office Button Turn Off Lights
+  description: ""
+  trigger:
+    - platform: device
+      device_id: b632a727fe2c41569d5cc83698124212
+      domain: zha
+      type: remote_button_short_press
+      subtype: remote_button_short_press
+  condition:
+    - condition: template
+      value_template: "{{ not is_state('input_select.office_scene', 'none') }}"
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.office_scene
+      data:
+        option: none
+
+- id: "1579059935757"
+  alias: Office Button Cycle Scenes
+  description: ""
+  trigger:
+    - platform: device
+      device_id: b632a727fe2c41569d5cc83698124212
+      domain: zha
+      type: remote_button_double_press
+      subtype: remote_button_double_press
+  condition: []
+  action:
+    - service: input_select.select_next
+      data:
+        entity_id: input_select.office_scene
+
+- id: "1579060720506"
   alias: Select Scene Office All Lights
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id: input_select.office_scene
-    to: all
+    - platform: state
+      entity_id: input_select.office_scene
+      to: all
   condition: []
   action:
-  - scene: scene.office_all_lights
+    - scene: scene.office_all_lights
 
-- id: '1579061140527'
+- id: "1579061140527"
   alias: Select Scene Office No Lights
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id: input_select.office_scene
-    to: none
+    - platform: state
+      entity_id: input_select.office_scene
+      to: none
   condition: []
   action:
-  - scene: scene.office_no_lights
+    - scene: scene.office_no_lights
 
 - id: 3b4480fe7c0344d1a358514de6550f2c
   alias: Select Scene Office Standing Lamp Only
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id: input_select.office_scene
-    to: standing
+    - platform: state
+      entity_id: input_select.office_scene
+      to: standing
   condition: []
   action:
-  - scene: scene.office_only_standing_lamp
+    - scene: scene.office_only_standing_lamp
 
 - id: d26455a2beaa43fe9f3cc4827e9b19c2
   alias: Select Scene Office Shelf Lamp Only
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id: input_select.office_scene
-    to: shelf
+    - platform: state
+      entity_id: input_select.office_scene
+      to: shelf
   condition: []
   action:
-  - scene: scene.office_only_shelf_lamp
+    - scene: scene.office_only_shelf_lamp
