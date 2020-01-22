@@ -11,9 +11,8 @@ default_config:
 # Text to speech
 tts:
   - platform: google_translate
-  
+
 input_select: !include input_select.yaml
-group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
