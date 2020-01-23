@@ -1,5 +1,5 @@
 - name: Home
   latitude: !secret homeassistant_latitude
   longitude: !secret homeassistant_longitude
-  radius: 100
+  radius: 25
   icon: mdi:home
