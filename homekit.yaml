@@ -1,5 +1,7 @@
 filter:
   include_domains:
+    - device_tracker
     - light
+    - person
     - sensor
     - switch
