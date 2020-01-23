@@ -1,0 +1,5 @@
+filter:
+  include_domains:
+    - light
+    - sensor
+    - switch
