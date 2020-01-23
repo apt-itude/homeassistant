@@ -2,6 +2,7 @@
 *.xml
 *.db
 *.sqlite
+.homekit.state
 .storage/
 OZW_Log.txt
 secrets.yaml
