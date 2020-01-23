@@ -11,3 +11,4 @@ default_config:
 input_select: !include input_select.yaml
 automation: !include automations.yaml
 scene: !include scenes.yaml
+zone: !include zones.yaml
