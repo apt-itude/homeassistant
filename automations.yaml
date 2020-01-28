@@ -1,5 +1,4 @@
-- id: "1578980090089"
-  alias: Alex gets home in evening
+- alias: Alex gets home in evening
   description: ""
   trigger:
     - entity_id: device_tracker.alex
@@ -104,8 +103,7 @@
   action:
     - scene: scene.living_room_only_ampersand_light
 
-- id: 26a4587d41524e818f510d54ba13b1fc
-  alias: Office Button Turn On Lights
+- alias: Office Button Turn On Lights
   description: ""
   trigger:
     - platform: device
@@ -123,8 +121,7 @@
       data:
         option: all
 
-- id: "1579227632285"
-  alias: Office Button Turn Off Lights
+- alias: Office Button Turn Off Lights
   description: ""
   trigger:
     - platform: device
@@ -141,8 +138,7 @@
       data:
         option: none
 
-- id: "1579059935757"
-  alias: Office Button Cycle Scenes
+- alias: Office Button Cycle Scenes
   description: ""
   trigger:
     - platform: device
@@ -156,8 +152,7 @@
       data:
         entity_id: input_select.office_scene
 
-- id: "1579060720506"
-  alias: Select Scene Office All Lights
+- alias: Select Scene Office All Lights
   description: ""
   trigger:
     - platform: state
@@ -167,8 +162,7 @@
   action:
     - scene: scene.office_all_lights
 
-- id: "1579061140527"
-  alias: Select Scene Office No Lights
+- alias: Select Scene Office No Lights
   description: ""
   trigger:
     - platform: state
@@ -178,8 +172,7 @@
   action:
     - scene: scene.office_no_lights
 
-- id: 3b4480fe7c0344d1a358514de6550f2c
-  alias: Select Scene Office Standing Lamp Only
+- alias: Select Scene Office Standing Lamp Only
   description: ""
   trigger:
     - platform: state
@@ -189,8 +182,7 @@
   action:
     - scene: scene.office_only_standing_lamp
 
-- id: d26455a2beaa43fe9f3cc4827e9b19c2
-  alias: Select Scene Office Shelf Lamp Only
+- alias: Select Scene Office Shelf Lamp Only
   description: ""
   trigger:
     - platform: state
