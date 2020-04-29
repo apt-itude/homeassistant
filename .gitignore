@@ -5,4 +5,5 @@
 .homekit.state
 .storage/
 OZW_Log.txt
+known_devices.yaml
 secrets.yaml
