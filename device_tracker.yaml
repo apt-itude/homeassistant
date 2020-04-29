@@ -2,3 +2,5 @@
   host: !secret openwrt_host
   username: !secret openwrt_admin_username
   password: !secret openwrt_admin_password
+  new_device_defaults:
+    track_new_devices: false

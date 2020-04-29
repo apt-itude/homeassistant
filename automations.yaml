@@ -1,7 +1,7 @@
 - alias: Alex gets home in evening
   description: ""
   trigger:
-    - entity_id: device_tracker.alex
+    - entity_id: device_tracker.alex_oneplus_6
       platform: state
       from: not_home
       to: home
