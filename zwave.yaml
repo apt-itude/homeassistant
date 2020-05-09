@@ -1,1 +1,2 @@
+config_path: /config/open-zwave/config
 network_key: !secret zwave_network_key
