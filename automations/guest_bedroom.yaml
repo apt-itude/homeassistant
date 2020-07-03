@@ -1,0 +1,11 @@
+- alias: Guest Bedroom Button Toggle Lights
+  description: ""
+  trigger:
+    - platform: device
+      device_id: d777e4d6fb484b85887b1ebaae2f2973
+      domain: zha
+      type: remote_button_short_press
+      subtype: remote_button_short_press
+  action:
+    - service: light.toggle
+      entity_id: light.guest_bedroom_standing_lamp
