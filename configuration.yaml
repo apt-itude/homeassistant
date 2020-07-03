@@ -9,7 +9,11 @@ homeassistant:
 default_config:
 
 input_select: !include input_select.yaml
-automation: !include automations.yaml
+
+automation living_room: !include automations/living_room.yaml
+automation office: !include automations/office.yaml
+automation presence: !include automations/presence.yaml
+
 scene: !include scenes.yaml
 zone: !include zones.yaml
 homekit: !include homekit.yaml

@@ -1,0 +1,15 @@
+- alias: Alex gets home in evening
+  description: ""
+  trigger:
+    - entity_id: device_tracker.alex_oneplus_6
+      platform: state
+      from: not_home
+      to: home
+  condition:
+    - condition: sun
+      after: sunset
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.office_scene
+      data:
+        option: all
