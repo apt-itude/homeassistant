@@ -14,3 +14,4 @@ scene: !include scenes.yaml
 zone: !include zones.yaml
 homekit: !include homekit.yaml
 device_tracker: !include device_tracker.yaml
+zwave: !include zwave.yaml

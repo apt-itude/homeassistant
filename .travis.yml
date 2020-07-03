@@ -6,6 +6,8 @@ cache: pip
 
 before_install:
   - mv travis_secrets.yaml secrets.yaml
+  - sudo apt-get update
+  - sudo apt-get -y install libudev-dev build-essential
 
 install:
   - pip3 install "homeassistant==$(cat .HA_VERSION)"
