@@ -10,6 +10,7 @@ default_config:
 
 input_select: !include input_select.yaml
 
+automation kitchen: !include automations/kitchen.yaml
 automation living_room: !include automations/living_room.yaml
 automation office: !include automations/office.yaml
 automation presence: !include automations/presence.yaml

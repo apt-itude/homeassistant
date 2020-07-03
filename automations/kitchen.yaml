@@ -1,0 +1,11 @@
+- alias: Kitchen Button Toggle Lights
+  description: ""
+  trigger:
+    - platform: device
+      device_id: e54720d27325429e9051e740710fed0f
+      domain: zha
+      type: remote_button_short_press
+      subtype: remote_button_short_press
+  action:
+    - service: light.toggle
+      entity_id: light.kitchen_dimmer
