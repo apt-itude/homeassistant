@@ -27,3 +27,4 @@ meross_cloud:
   password: !secret meross_password
 
 sensor: !include sensor.yaml
+climate: !include climate.yaml
