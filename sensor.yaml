@@ -1,5 +1,4 @@
-- entity_id: sensor.fermenter_1_temperature
-  name: "Fermenter 1 Temperature Sensor"
+- name: Fermenter 1 Temperature
   platform: rest
   resource: http://192.168.2.205:8080/fermenters/tilt-black
   value_template: "{{ value_json.temperature }}"
