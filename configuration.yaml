@@ -21,3 +21,7 @@ zone: !include zones.yaml
 homekit: !include homekit.yaml
 device_tracker: !include device_tracker.yaml
 zwave: !include zwave.yaml
+
+meross_cloud:
+  username: !secret meross_username
+  password: !secret meross_password
