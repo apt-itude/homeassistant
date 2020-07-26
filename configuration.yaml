@@ -26,5 +26,5 @@ meross_cloud:
   username: !secret meross_username
   password: !secret meross_password
 
-mqtt:
+mqtt: !include mqtt.yaml
 ibeacon_mqtt:
