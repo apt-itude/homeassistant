@@ -17,6 +17,8 @@ def setup(hass, config):
 
     monitor.start()
 
+    return True
+
 
 class iBeaconMonitor:
     def __init__(self):
