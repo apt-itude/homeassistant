@@ -1,3 +1,4 @@
+import json
 import logging
 
 import beacontools
@@ -43,10 +44,7 @@ class iBeaconMonitor:
         )
         try:
             topic = f"ibeacon/{packet.uuid}"
-            payload = {
-                "major": packet.major,
-                "minor": packet.minor,
-            }
+            payload = json.dumps({"major": packet.major, "minor": packet.minor})
             homeassistant.components.mqtt.publish(self._hass, topic, payload)
         except Exception:
             _LOG.exception("Failed to publish iBeacon data to MQTT")
