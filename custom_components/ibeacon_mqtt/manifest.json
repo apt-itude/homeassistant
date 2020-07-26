@@ -2,7 +2,9 @@
   "domain": "ibeacon_mqtt",
   "name": "iBeacon MQTT",
   "documentation": "",
-  "dependencies": [],
+  "dependencies": [
+    "mqtt"
+  ],
   "codeowners": [],
   "requirements": [
     "beacontools[scan]==2.0.0"
