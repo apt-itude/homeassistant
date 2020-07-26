@@ -7,3 +7,8 @@
 OZW_Log.txt
 known_devices.yaml
 secrets.yaml
+
+# Python files from custom components
+__pycache__/
+*.py[cod]
+*$py.class
