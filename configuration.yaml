@@ -25,3 +25,6 @@ zwave: !include zwave.yaml
 meross_cloud:
   username: !secret meross_username
   password: !secret meross_password
+
+mqtt: !include mqtt.yaml
+ibeacon_mqtt:
