@@ -1,0 +1,10 @@
+{
+  "domain": "tilt",
+  "name": "Tilt Hydrometer",
+  "documentation": "",
+  "dependencies": [
+    "mqtt"
+  ],
+  "codeowners": [],
+  "requirements": []
+}
