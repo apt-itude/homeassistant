@@ -40,15 +40,12 @@ class iBeaconMonitor:
         _LOG.debug(
             "Received iBeacon: <%s, %d> %s %s", bt_addr, rssi, packet, additional_info
         )
-        try:
-            topic = f"ibeacon/{packet.uuid}"
-            payload = {
-                "major": packet.major,
-                "minor": packet.minor,
-            }
-            homeassistant.components.mqtt.publish(hass, topic, payload)
-        except Exception:
-            _LOG.exception("Failed to publish iBeacon data to MQTT")
+        topic = f"ibeacon/{packet.uuid}"
+        payload = {
+            "major": packet.major,
+            "minor": packet.minor,
+        }
+        homeassistant.components.mqtt.publish(hass, topic, payload)
 
     def stop(self):
         if self._scanner is None:
