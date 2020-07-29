@@ -27,7 +27,7 @@ meross_cloud:
   password: !secret meross_password
 
 mqtt: !include mqtt.yaml
-ibeacon_mqtt:
+# ibeacon_mqtt:
 
 sensor: !include sensor.yaml
 climate: !include climate.yaml
