@@ -11,7 +11,7 @@ _LOG = logging.getLogger(__name__)
 
 
 def setup(hass, config):
-    monitor = iBeaconMonitor(hass)
+    monitor = iBeaconMonitor()
 
     hass.bus.listen_once(homeassistant.const.EVENT_HOMEASSISTANT_START, monitor.start)
     hass.bus.listen_once(homeassistant.const.EVENT_HOMEASSISTANT_STOP, monitor.stop)
@@ -22,8 +22,7 @@ def setup(hass, config):
 
 
 class iBeaconMonitor:
-    def __init__(self, hass):
-        self._hass = hass
+    def __init__(self):
         self._scanner = None
 
     def start(self):
@@ -47,7 +46,7 @@ class iBeaconMonitor:
                 "major": packet.major,
                 "minor": packet.minor,
             }
-            homeassistant.components.mqtt.publish(self._hass, topic, payload)
+            homeassistant.components.mqtt.publish(hass, topic, payload)
         except Exception:
             _LOG.exception("Failed to publish iBeacon data to MQTT")
 
