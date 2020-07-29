@@ -68,10 +68,11 @@ class iBeaconMonitor:
 
         self._scanner = beacontools.BeaconScanner(
             self._handle_beacon,
-            device_filter=[
-                beacontools.IBeaconFilter(uuid=color.uuid)
-                for color in self._tilts.keys()
-            ],
+            packet_filter=beacontools.IBeaconAdvertisement,
+            # device_filter=[
+            #     beacontools.IBeaconFilter(uuid=color.uuid)
+            #     for color in self._tilts.keys()
+            # ],
         )
         self._scanner.start()
         _LOG.info("Started scanning for iBeacons")
