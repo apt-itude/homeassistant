@@ -4,5 +4,7 @@
   "documentation": "",
   "dependencies": [],
   "codeowners": [],
-  "requirements": []
+  "requirements": [
+    "beacontools[scan]==2.0.0"
+  ]
 }
