@@ -31,3 +31,7 @@ ibeacon_mqtt:
 
 sensor: !include sensor.yaml
 climate: !include climate.yaml
+
+logger:
+  logs:
+    custom_components.tilt: debug
