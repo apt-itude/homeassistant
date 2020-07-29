@@ -33,5 +33,6 @@ sensor: !include sensor.yaml
 climate: !include climate.yaml
 
 logger:
+  default: info
   logs:
     custom_components.tilt: debug
