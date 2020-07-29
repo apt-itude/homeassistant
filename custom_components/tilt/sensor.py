@@ -14,8 +14,12 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
     monitor = iBeaconMonitor(tilts)
 
-    hass.bus.listen_once(homeassistant.const.EVENT_HOMEASSISTANT_START, monitor.start)
-    hass.bus.listen_once(homeassistant.const.EVENT_HOMEASSISTANT_STOP, monitor.stop)
+    hass.bus.listen_once(
+        homeassistant.const.EVENT_HOMEASSISTANT_START, lambda _event: monitor.start()
+    )
+    hass.bus.listen_once(
+        homeassistant.const.EVENT_HOMEASSISTANT_STOP, lambda _event: monitor.stop()
+    )
 
     monitor.start()
 
@@ -49,7 +53,7 @@ class Tilt:
 
     @property
     def color(self):
-        return self.color
+        return self._color
 
 
 class iBeaconMonitor:
@@ -84,7 +88,8 @@ class iBeaconMonitor:
             return
 
         _LOG.debug("Updating Tilt %s", color.friendly_name)
-        tilt.update(packet.major, packet.minor)
+        tilt.temperature = packet.major
+        tilt.specific_gravity = float(packet.minor) / 1000
 
     def stop(self):
         if self._scanner is None:
@@ -102,11 +107,11 @@ class TemperatureSensor(homeassistant.helpers.entity.Entity):
 
     @property
     def name(self):
-        return f"Tilt {self.tilt.color.friendly_name} Temperature"
+        return f"Tilt {self._tilt.color.friendly_name} Temperature"
 
     @property
     def state(self):
-        return self.tilt.temperature
+        return self._tilt.temperature
 
     @property
     def unit_of_measurement(self):
@@ -114,4 +119,4 @@ class TemperatureSensor(homeassistant.helpers.entity.Entity):
 
     @property
     def available(self):
-        return self.tilt.temperature is not None
+        return self._tilt.temperature is not None
