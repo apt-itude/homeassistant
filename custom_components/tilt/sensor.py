@@ -19,7 +19,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
     monitor.start()
 
-    add_entities([TemperatureSensor(hass, tilt) for tilt in tilts.values()])
+    add_entities([TemperatureSensor(tilt) for tilt in tilts.values()])
 
 
 class Color(enum.Enum):
