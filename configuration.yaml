@@ -30,8 +30,3 @@ mqtt: !include mqtt.yaml
 sensor:
   - platform: tilt
     color: black
-
-logger:
-  default: info
-  logs:
-    custom_components.tilt: debug
