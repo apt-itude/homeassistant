@@ -1,0 +1,16 @@
+brewers_friend_publish:
+  url: https://log.brewersfriend.com/stream
+  method: POST
+  headers:
+    x-api-key: !secret brewers_friend_api_key
+  payload: |
+    {
+      "name": "HomeAssistant {{ fermenter_name }}",
+      "device_source": "Tilt",
+      "report_source": "HomeAssistant",
+      "temp": "{{ temperature }}",
+      "temp_unit": "F",
+      "gravity": "{{ specific_gravity }}",
+      "gravity_unit": "G"
+    }
+  content_type: "application/json; charset=utf-8"
