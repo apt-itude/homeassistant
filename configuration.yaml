@@ -16,6 +16,8 @@ automation living_room: !include automations/living_room.yaml
 automation office: !include automations/office.yaml
 automation presence: !include automations/presence.yaml
 
+sensor tilt: !include sensors/tilt.yaml
+
 scene: !include scenes.yaml
 zone: !include zones.yaml
 homekit: !include homekit.yaml
@@ -27,6 +29,3 @@ meross_cloud:
   password: !secret meross_password
 
 mqtt: !include mqtt.yaml
-sensor:
-  - platform: tilt
-    color: black
