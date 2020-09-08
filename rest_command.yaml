@@ -1,8 +1,6 @@
 brewers_friend_publish:
-  url: https://log.brewersfriend.com/stream
+  url: "https://log.brewersfriend.com/stream/{{ api_key }}"
   method: POST
-  headers:
-    x-api-key: !secret brewers_friend_api_key
   payload: |
     {
       "name": "HomeAssistant {{ fermenter_name }}",

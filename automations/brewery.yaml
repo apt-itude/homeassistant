@@ -7,5 +7,6 @@
     - service: rest_command.brewers_friend_publish
       data_template:
         fermenter_name: Fermenter 1
+        api_key: !secret brewers_friend_api_key
         temperature: "{{ states('sensor.tilt_black_temperature') }}"
         specific_gravity: "{{ states('sensor.tilt_black_specific_gravity') }}"
