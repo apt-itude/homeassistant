@@ -29,6 +29,7 @@ meross_cloud:
 mqtt: !include mqtt.yaml
 sensor:
   - platform: tilt
+    color: black
 
 logger:
   default: info

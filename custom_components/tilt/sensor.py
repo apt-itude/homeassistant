@@ -2,18 +2,15 @@ import enum
 import json
 import logging
 
-import homeassistant.components
+import homeassistant.components.mqtt
+import homeassistant.components.sensor
 import homeassistant.const
 import homeassistant.core
 import homeassistant.helpers.entity
+import voluptuous as vol
 
 
 _LOG = logging.getLogger(__name__)
-
-
-def setup_platform(hass, config, add_entities, discovery_info=None):
-    _LOG.debug("Setting up Tilt sensor platform")
-    add_entities([TemperatureSensor(hass, Color.BLACK)])
 
 
 class Color(enum.Enum):
@@ -26,9 +23,24 @@ class Color(enum.Enum):
     YELLOW = "a495bb70-c5b1-4b44-b512-1370f02d74de"
     PINK = "a495bb80-c5b1-4b44-b512-1370f02d74de"
 
+    @classmethod
+    def from_name(self, name):
+        return getattr(self, name.upper())
+
     @property
     def friendly_name(self):
         return self.name.capitalize()
+
+
+PLATFORM_SCHEMA = homeassistant.components.sensor.PLATFORM_SCHEMA.extend(
+    {vol.Required("color"): vol.Any(*[color.name.lower() for color in Color])}
+)
+
+
+def setup_platform(hass, config, add_entities, discovery_info=None):
+    color = Color.from_name(config["color"])
+    _LOG.debug("Adding sensor entities for Tilt %s", color.friendly_name)
+    add_entities([TemperatureSensor(hass, color)])
 
 
 class TemperatureSensor(homeassistant.helpers.entity.Entity):
