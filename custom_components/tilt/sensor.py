@@ -12,6 +12,7 @@ _LOG = logging.getLogger(__name__)
 
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
+    _LOG.debug("Setting up Tilt sensor platform")
     add_entities([TemperatureSensor(hass, Color.BLACK)])
 
 
@@ -66,6 +67,8 @@ class TemperatureSensor(homeassistant.helpers.entity.Entity):
 
     @homeassistant.core.callback
     def _handle_message(self, message):
+        _LOG.debug("Received Tilt iBeacon advertisement via MQTT")
+
         try:
             data = json.loads(message.payload)
         except json.JSONDecodeError:
