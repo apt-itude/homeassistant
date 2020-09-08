@@ -62,7 +62,7 @@ class TemperatureSensor(homeassistant.helpers.entity.Entity):
     async def async_added_to_hass(self):
         await super().async_added_to_hass()
         self._unsubscribe = await homeassistant.components.mqtt.async_subscribe(
-            hass, self._topic, self._handle_message
+            self._hass, self._topic, self._handle_message
         )
 
     @homeassistant.core.callback
