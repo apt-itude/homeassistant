@@ -27,4 +27,5 @@ meross_cloud:
   password: !secret meross_password
 
 mqtt: !include mqtt.yaml
-tilt:
+sensor:
+  - platform: tilt
