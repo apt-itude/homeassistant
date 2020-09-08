@@ -29,3 +29,8 @@ meross_cloud:
 mqtt: !include mqtt.yaml
 sensor:
   - platform: tilt
+
+logger:
+  default: info
+  logs:
+    custom_components.tilt: debug
