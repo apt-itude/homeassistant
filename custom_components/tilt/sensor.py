@@ -158,5 +158,9 @@ class SpecificGravitySensor(homeassistant.helpers.entity.Entity):
         return self._tilt.specific_gravity
 
     @property
+    def unit_of_measurement(self):
+        return "SG"
+
+    @property
     def available(self):
         return self._tilt.specific_gravity is not None
