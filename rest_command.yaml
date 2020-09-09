@@ -4,7 +4,6 @@ brewers_friend_publish:
   payload: |
     {
       "name": "HomeAssistant {{ fermenter_name }}",
-      "device_source": "Tilt",
       "report_source": "HomeAssistant",
       "temp": "{{ temperature }}",
       "temp_unit": "F",
