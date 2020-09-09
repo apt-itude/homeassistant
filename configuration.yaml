@@ -10,6 +10,7 @@ default_config:
 
 input_select: !include input_select.yaml
 
+automation brewery: !include automations/brewery.yaml
 automation kitchen: !include automations/kitchen.yaml
 automation guest_bedroom: !include automations/guest_bedroom.yaml
 automation living_room: !include automations/living_room.yaml
@@ -29,3 +30,4 @@ meross_cloud:
   password: !secret meross_password
 
 mqtt: !include mqtt.yaml
+rest_command: !include rest_command.yaml
