@@ -31,3 +31,4 @@ meross_cloud:
 
 mqtt: !include mqtt.yaml
 rest_command: !include rest_command.yaml
+climate: !include climate.yaml
