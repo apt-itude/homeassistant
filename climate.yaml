@@ -1,0 +1,6 @@
+- name: Fermenter 1 Thermostat
+  platform: generic_thermostat
+  heater: switch.fermenter_1_temperature_heater
+  target_sensor: sensor.tilt_black_temperature
+  target_temp: 68
+  initial_hvac_mode: "off"
