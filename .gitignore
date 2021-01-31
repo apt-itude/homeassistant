@@ -5,6 +5,7 @@
 .homekit.state
 .storage/
 OZW_Log.txt
+harmony_*.conf
 known_devices.yaml
 secrets.yaml
 
