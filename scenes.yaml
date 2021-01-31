@@ -25,39 +25,3 @@
       state: "on"
     switch.living_room_tower_lamp:
       state: "off"
-
-- name: Office no lights
-  entities:
-    light.beer_shelf_lamp:
-      state: "off"
-    switch.office_standing_lamp:
-      state: "off"
-    switch.office_tower_lamp:
-      state: "off"
-
-- name: Office all lights
-  entities:
-    light.beer_shelf_lamp:
-      state: "on"
-    switch.office_standing_lamp:
-      state: "on"
-    switch.office_tower_lamp:
-      state: "on"
-
-- name: Office only standing lamp
-  entities:
-    light.beer_shelf_lamp:
-      state: "off"
-    switch.office_standing_lamp:
-      state: "on"
-    switch.office_tower_lamp:
-      state: "off"
-
-- name: Office only shelf lamp
-  entities:
-    light.beer_shelf_lamp:
-      state: "on"
-    switch.office_standing_lamp:
-      state: "off"
-    switch.office_tower_lamp:
-      state: "off"

@@ -1,0 +1,5 @@
+office_lamps:
+  name: Office Lamps
+  entities:
+    - light.beer_shelf_lamp
+    - switch.office_standing_lamp
