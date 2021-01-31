@@ -13,3 +13,4 @@
         {% else %}
           homeassistant.turn_off
         {% endif %}
+      entity_id: group.office_lamps
