@@ -8,13 +8,11 @@
       subtype: remote_button_short_press
   condition:
     - condition: state
-      entity_id: input_select.office_scene
-      state: none
+      entity_id: group.office_lamps
+      state: "off"
   action:
-    - service: input_select.select_option
-      entity_id: input_select.office_scene
-      data:
-        option: all
+    - service: homeassistant.turn_on
+      entity_id: group.office_lamps
 
 - alias: Office Button Turn Off Lights
   description: ""
@@ -25,64 +23,9 @@
       type: remote_button_short_press
       subtype: remote_button_short_press
   condition:
-    - condition: template
-      value_template: "{{ not is_state('input_select.office_scene', 'none') }}"
+    - condition: state
+      entity_id: group.office_lamps
+      state: "on"
   action:
-    - service: input_select.select_option
-      entity_id: input_select.office_scene
-      data:
-        option: none
-
-- alias: Office Button Cycle Scenes
-  description: ""
-  trigger:
-    - platform: device
-      device_id: b632a727fe2c41569d5cc83698124212
-      domain: zha
-      type: remote_button_double_press
-      subtype: remote_button_double_press
-  condition: []
-  action:
-    - service: input_select.select_next
-      data:
-        entity_id: input_select.office_scene
-
-- alias: Select Scene Office All Lights
-  description: ""
-  trigger:
-    - platform: state
-      entity_id: input_select.office_scene
-      to: all
-  condition: []
-  action:
-    - scene: scene.office_all_lights
-
-- alias: Select Scene Office No Lights
-  description: ""
-  trigger:
-    - platform: state
-      entity_id: input_select.office_scene
-      to: none
-  condition: []
-  action:
-    - scene: scene.office_no_lights
-
-- alias: Select Scene Office Standing Lamp Only
-  description: ""
-  trigger:
-    - platform: state
-      entity_id: input_select.office_scene
-      to: standing
-  condition: []
-  action:
-    - scene: scene.office_only_standing_lamp
-
-- alias: Select Scene Office Shelf Lamp Only
-  description: ""
-  trigger:
-    - platform: state
-      entity_id: input_select.office_scene
-      to: shelf
-  condition: []
-  action:
-    - scene: scene.office_only_shelf_lamp
+    - service: homeassistant.turn_off
+      entity_id: group.office_lamps

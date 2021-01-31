@@ -13,6 +13,8 @@ climate: !include climate.yaml
 
 device_tracker: !include device_tracker.yaml
 
+group: !include groups.yaml
+
 homekit: !include homekit.yaml
 
 input_select: !include input_select.yaml
@@ -22,8 +24,6 @@ meross_cloud: !include meross_cloud.yaml
 mqtt: !include mqtt.yaml
 
 rest_command: !include rest_command.yaml
-
-scene: !include scenes.yaml
 
 sensor tilt: !include sensors/tilt.yaml
 
