@@ -13,6 +13,8 @@ climate: !include climate.yaml
 
 device_tracker: !include device_tracker.yaml
 
+group: !include groups/office.yaml
+
 homekit: !include homekit.yaml
 
 input_select: !include input_select.yaml
