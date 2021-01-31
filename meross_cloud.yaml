@@ -1,0 +1,2 @@
+username: !secret meross_username
+password: !secret meross_password
