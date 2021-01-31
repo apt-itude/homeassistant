@@ -1,4 +1,4 @@
-- alias: Office Button Toggle Lights
+- alias: Office Button Turn On Lights
   description: ""
   trigger:
     - platform: device
@@ -6,11 +6,26 @@
       domain: zha
       type: remote_button_short_press
       subtype: remote_button_short_press
+  condition:
+    - condition: state
+      entity_id: group.office_lamps
+      state: "off"
   action:
-    - service_template: >
-        {% if is_state('group.office_lamps','off') %}
-          homeassistant.turn_on
-        {% else %}
-          homeassistant.turn_off
-        {% endif %}
+    - service: homeassistant.turn_on
+      entity_id: group.office_lamps
+
+- alias: Office Button Turn Off Lights
+  description: ""
+  trigger:
+    - platform: device
+      device_id: b632a727fe2c41569d5cc83698124212
+      domain: zha
+      type: remote_button_short_press
+      subtype: remote_button_short_press
+  condition:
+    - condition: state
+      entity_id: group.office_lamps
+      state: "on"
+  action:
+    - service: homeassistant.turn_off
       entity_id: group.office_lamps
