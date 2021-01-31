@@ -13,7 +13,7 @@ climate: !include climate.yaml
 
 device_tracker: !include device_tracker.yaml
 
-group: !include groups/office.yaml
+group: !include groups.yaml
 
 homekit: !include homekit.yaml
 
