@@ -1,14 +1,6 @@
-homeassistant:
-  name: Home
-  latitude: !secret homeassistant_latitude
-  longitude: !secret homeassistant_longitude
-  elevation: !secret homeassistant_elevation
-  unit_system: imperial
-  time_zone: America/New_York
-
 default_config:
 
-input_select: !include input_select.yaml
+homeassistant: !include homeassistant.yaml
 
 automation brewery: !include automations/brewery.yaml
 automation kitchen: !include automations/kitchen.yaml
@@ -17,18 +9,24 @@ automation living_room: !include automations/living_room.yaml
 automation office: !include automations/office.yaml
 automation presence: !include automations/presence.yaml
 
-sensor tilt: !include sensors/tilt.yaml
+climate: !include climate.yaml
 
-scene: !include scenes.yaml
-zone: !include zones.yaml
-homekit: !include homekit.yaml
 device_tracker: !include device_tracker.yaml
-zwave: !include zwave.yaml
 
-meross_cloud:
-  username: !secret meross_username
-  password: !secret meross_password
+homekit: !include homekit.yaml
+
+input_select: !include input_select.yaml
+
+meross_cloud: !include meross_cloud.yaml
 
 mqtt: !include mqtt.yaml
+
 rest_command: !include rest_command.yaml
-climate: !include climate.yaml
+
+scene: !include scenes.yaml
+
+sensor tilt: !include sensors/tilt.yaml
+
+zone: !include zones.yaml
+
+zwave: !include zwave.yaml
