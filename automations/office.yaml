@@ -7,5 +7,9 @@
       type: remote_button_short_press
       subtype: remote_button_short_press
   action:
-    - service: light.toggle
-      entity_id: group.office_lamps
+    - service_template: >
+        {% if is_state('group.office_lamps','off') %}
+          homeassistant.turn_on
+        {% else %}
+          homeassistant.turn_off
+        {% endif %}
