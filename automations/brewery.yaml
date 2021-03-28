@@ -1,4 +1,4 @@
-- alias: Publish Fermenter 1 Data to Brewer's Friend
+- alias: Publish Black Data to Brewer's Friend
   description: ""
   trigger:
     - platform: time_pattern
@@ -7,6 +7,19 @@
     - service: rest_command.brewers_friend_publish
       data_template:
         api_key: !secret brewers_friend_api_key
-        fermenter_name: Fermenter 1
+        fermenter_name: Black
         temperature: "{{ states('sensor.tilt_black_temperature') }}"
         specific_gravity: "{{ states('sensor.tilt_black_specific_gravity') }}"
+
+- alias: Publish Green Data to Brewer's Friend
+  description: ""
+  trigger:
+    - platform: time_pattern
+      minutes: "/20"
+  action:
+    - service: rest_command.brewers_friend_publish
+      data_template:
+        api_key: !secret brewers_friend_api_key
+        fermenter_name: Green
+        temperature: "{{ states('sensor.tilt_green_temperature') }}"
+        specific_gravity: "{{ states('sensor.tilt_green_specific_gravity') }}"
