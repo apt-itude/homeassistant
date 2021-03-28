@@ -1,2 +1,5 @@
 - platform: tilt
   color: black
+
+- platform: tilt
+  color: green
