@@ -1,4 +1,4 @@
-- alias: Publish Black Data to Brewer's Friend
+- alias: Publish Black Fermenter Data to Brewer's Friend
   description: ""
   trigger:
     - platform: time_pattern
@@ -11,7 +11,7 @@
         temperature: "{{ states('sensor.tilt_black_temperature') }}"
         specific_gravity: "{{ states('sensor.tilt_black_specific_gravity') }}"
 
-- alias: Publish Green Data to Brewer's Friend
+- alias: Publish Green Fermenter Data to Brewer's Friend
   description: ""
   trigger:
     - platform: time_pattern
