@@ -1,6 +1,7 @@
 {
   "domain": "tilt",
   "name": "Tilt Hydrometer",
+  "version": "1.0.0",
   "documentation": "",
   "dependencies": [
     "mqtt"
