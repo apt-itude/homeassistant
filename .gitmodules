@@ -1,3 +1,3 @@
 [submodule "thirdparty/meross-homeassistant"]
 	path = thirdparty/meross-homeassistant
-	url = https://github.com/apt-itude/meross-homeassistant.git
+	url = git@github.com:albertogeniola/meross-homeassistant.git
